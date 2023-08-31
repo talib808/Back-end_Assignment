@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Dashboard</h1>
+  <p>Total Users: <span id="usersCount"></span></p>
+  <p>Revenue: <span id="revenue"></span></p>
+
+  <!-- Chart container -->
+  <canvas id="statisticsChart" width="400" height="200"></canvas>
+
+  <script>
+    // Retrieve statistics data from the server and populate the DOM
+    var usersCount = document.getElementById('usersCount');
+    var revenue = document.getElementById('revenue');
+    var ctx = document.getElementById('statisticsChart').getContext('2d');
+
+    // Replace with actual data fetched from the server
+    var statistics = {
+      usersCount: JSON.stringify(statistics.usersCount || 'N/A'),
+      revenue:  JSON.stringify(statistics.revenue || 'N/A'),
+      statistic1:  JSON.stringify(statistics.statistic1 || 0) ,
+      statistic2: JSON.stringify(statistics.statistic2 || 0) ,
+      statistic3: JSON.stringify(statistics.statistic3 || 0) 
+    };
+
+    usersCount.textContent = statistics.usersCount;
+    revenue.textContent = statistics.revenue;
+
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Statistic 1', 'Statistic 2', 'Statistic 3'],
+        datasets: [{
+          label: 'Statistics',
+          data: [statistics.statistic1, statistics.statistic2, statistics.statistic3],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
+

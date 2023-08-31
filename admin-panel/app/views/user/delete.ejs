@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete User</title>
+</head>
+<body>
+  <h1>Delete User</h1>
+  <p>Are you sure you want to delete this user?</p>
+  
+  <form action="/dashboard/users/delete/<%= user._id %>" method="post">
+    <button type="submit">Confirm Delete</button>
+  </form>
+  
+  <a href="/dashboard/users">Cancel</a>
+</body>
+</html>

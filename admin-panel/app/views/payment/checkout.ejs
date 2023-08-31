@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout</title>
+</head>
+<body>
+  <form id="checkout-form" action="/payment/create-subscription" method="POST">
+    <input type="text" name="email" placeholder="Email">
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="your_publishable_key"
+            data-amount="1000"  
+            data-name="Your Company"
+            data-description="Monthly Subscription"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto"
+            data-currency="usd">
+    </script>
+  </form>
+</body>
+</html>
